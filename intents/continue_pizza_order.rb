@@ -1,4 +1,5 @@
 require './lib/pizza'
+require 'active_support/core_ext/array/conversions'
 
 intent "ContinuePizzaOrder" do
   size = request.slot_value("size")
