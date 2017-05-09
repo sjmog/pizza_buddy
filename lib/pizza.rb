@@ -1,4 +1,9 @@
+require 'data_mapper'
+require 'dm-postgres-types'
+
 class Pizza
+  include DataMapper::Resource
+
   SIZES = [:small, :medium, :large]
   TOPPINGS = [
     :tomato_sauce, 
@@ -11,6 +16,10 @@ class Pizza
     :sweetcorn, 
     :olives
   ]
+
+  property :id, Serial
+  property :size, String
+  property :toppings, PgArray
 
   def self.disallowed_toppings(toppings)
     toppings.reject { |topping| allowed_topping?(topping) }
