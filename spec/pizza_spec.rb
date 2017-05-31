@@ -28,7 +28,7 @@ RSpec.describe Pizza do
     end
 
     it 'can be persisted' do
-      pizza = Pizza.new(size: 'small', toppings: ['cheese', 'ham'])
+      pizza = Pizza.new(size: 'small', toppings: ['cheese', 'ham'], user_id: 1)
       pizza.save
 
       expect(pizza.id).not_to be_nil
