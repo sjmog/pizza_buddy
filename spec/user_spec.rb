@@ -25,7 +25,7 @@ RSpec.describe User do
 
     it 'retrieves a user if a one with that name and access token does exist' do
       User.create(name: "Timmy", access_token: "AccessToken")
-      
+
       expect { User.authenticate("AccessToken", client) }.not_to change { User.count }
       expect(User.authenticate("AccessToken", client).name).to eq "Timmy"
       expect(User.authenticate("AccessToken", client).access_token).to eq "AccessToken"

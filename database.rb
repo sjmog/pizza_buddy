@@ -5,4 +5,5 @@ configure :development do
 end
 
 DataMapper.finalize
-Pizza.auto_upgrade!
+Pizza.auto_migrate!
+User.auto_migrate!
