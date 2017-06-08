@@ -10,14 +10,10 @@ RSpec.describe User do
   describe '.authenticate' do
     let(:amazon_response) do
       amazon_response = {
-        body: {
-          profile: {
-            name: "Timmy Tales"
-          }
-        }
+        name: "Timmy Tales"
       }.to_json
     end
-    let(:client) { double(:"Net::HTTP", get_response: amazon_response) }
+    let(:client) { double(:"Net::HTTP", get: amazon_response) }
 
     it 'creates a user if one does not exist' do
       expect { User.authenticate("AccessToken", client) }.to change { User.count }.by(1)
